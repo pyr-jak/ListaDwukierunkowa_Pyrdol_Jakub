@@ -5,6 +5,7 @@ DoublyLinkedList::DoublyLinkedList()
 {
     head = nullptr;
     tail = nullptr;
+    cursor = nullptr;
     size = 0;
 }
 
@@ -197,6 +198,58 @@ void DoublyLinkedList::display_reversed_list()
         current = current->prev;
     }
     std::cout<<std::endl;
+}
+
+void DoublyLinkedList::display_next_element()
+{
+    if (head == nullptr)
+    {
+        std::cout << "List is empty" << std::endl;
+        return;
+    }
+
+    if (cursor == nullptr)
+    {
+        cursor = head;
+    }
+    else
+    {
+        cursor = cursor->next;
+    }
+
+    if (cursor == nullptr)
+    {
+        std::cout << "End of the list" << std::endl;
+        return;
+    }
+
+    std::cout << "Next element: " << cursor->value << std::endl;
+}
+
+void DoublyLinkedList::display_prev_element()
+{
+    if (head == nullptr)
+    {
+        std::cout << "List is empty" << std::endl;
+        return;
+    }
+
+    if (cursor == nullptr)
+    {
+        cursor = tail;
+    }
+    else
+    {
+        cursor = cursor->prev;
+    }
+
+    if (cursor == nullptr)
+    {
+        std::cout << "Beggining of the list" << std::endl;
+        return;
+    }
+
+    std::cout << "Previous element:" << cursor->value << std::endl;
 }
 
 void DoublyLinkedList::clear_list()

@@ -32,6 +32,14 @@ int main() {
     list.pop_wherever(1);
     list.display_list();
 
+    list.display_next_element();
+    list.display_next_element();
+    list.display_next_element();
+
+    list.display_prev_element();
+    list.display_prev_element();
+    list.display_prev_element();
+
     list.clear_list();
     return 0;
 }

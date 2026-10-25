@@ -35,6 +35,11 @@ private:
      */
     int size;
 
+    /**
+     * @brief Zmienna przechowująca miejsce w którym ostanio działały funkcje display_prev i display_next.
+     */
+    Node* cursor;
+
 public:
     /**
      * @brief Konstruktor klasy.
