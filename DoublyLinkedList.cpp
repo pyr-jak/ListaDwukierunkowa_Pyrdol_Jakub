@@ -1,6 +1,16 @@
+/**
+ * @file DoublyLinkedList.cpp
+ * @brief Implementacja metod klasy DoublyLinkedList.
+ */
+
 #include <iostream>
 #include "DoublyLinkedList.h"
 
+/**
+ * @brief Konstruktor domyślny klasy DoublyLinkedList.
+ * 
+ * Inicjalizuje pustą listę, ustawiając wskaźniki na nullptr oraz rozmiar na 0.
+ */
 DoublyLinkedList::DoublyLinkedList()
 {
     head = nullptr;
@@ -9,17 +19,31 @@ DoublyLinkedList::DoublyLinkedList()
     size = 0;
 }
 
+/**
+ * @brief Zwraca iterator wskazujący na początek listy.
+ * 
+ * @return Iterator ustawiony na węzeł head.
+ */
 Iterator DoublyLinkedList::begin()
 {
     return Iterator(head);
 }
 
+/**
+ * @brief Zwraca iterator wskazujący na koniec listy (za ostatni element).
+ * 
+ * @return Iterator ustawiony na nullptr.
+ */
 Iterator DoublyLinkedList::end()
 {
     return Iterator(nullptr);
 }
 
-
+/**
+ * @brief Dodaje nowy element na początek listy.
+ * 
+ * @param value Wartość do dodania.
+ */
 void DoublyLinkedList::push_front(int value)
 {
     Node* newNode = factory.createNode(value);
@@ -37,6 +61,11 @@ void DoublyLinkedList::push_front(int value)
     size++;
 }
 
+/**
+ * @brief Dodaje nowy element na koniec listy.
+ * 
+ * @param value Wartość do dodania.
+ */
 void DoublyLinkedList::push_back(int value)
 {
     Node* newNode = factory.createNode(value);
@@ -54,6 +83,12 @@ void DoublyLinkedList::push_back(int value)
     size++;
 }
 
+/**
+ * @brief Wstawia nowy element pod wskazany indeks.
+ * 
+ * @param index Pozycja, na której ma zostać wstawiony element.
+ * @param value Wartość do dodania.
+ */
 void DoublyLinkedList::push_wherever(int index, int value)
 {
     if (index < 0)
@@ -88,6 +123,9 @@ void DoublyLinkedList::push_wherever(int index, int value)
     size++;
 }
 
+/**
+ * @brief Usuwa element z początku listy.
+ */
 void DoublyLinkedList::pop_front()
 {
     if (head == nullptr)
@@ -110,6 +148,9 @@ void DoublyLinkedList::pop_front()
     size--;
 }
 
+/**
+ * @brief Usuwa element z końca listy.
+ */
 void DoublyLinkedList::pop_back()
 {
     if (head == nullptr)
@@ -132,6 +173,11 @@ void DoublyLinkedList::pop_back()
     size--;
 }
 
+/**
+ * @brief Usuwa element z podanego indeksu.
+ * 
+ * @param index Pozycja elementu do usunięcia.
+ */
 void DoublyLinkedList::pop_wherever(int index)
 {
     if (index < 0 || index >= size)
@@ -164,6 +210,9 @@ void DoublyLinkedList::pop_wherever(int index)
     size--;
 }
 
+/**
+ * @brief Wyświetla zawartość listy od początku do końca, korzystając z iteratora.
+ */
 void DoublyLinkedList::display_list()
 {
     if (head == nullptr)
@@ -179,6 +228,9 @@ void DoublyLinkedList::display_list()
     std::cout << std::endl;
 }
 
+/**
+ * @brief Wyświetla zawartość listy od końca do początku, korzystając z iteratora.
+ */
 void DoublyLinkedList::display_reversed_list()
 {
     if (tail == nullptr)
@@ -194,6 +246,9 @@ void DoublyLinkedList::display_reversed_list()
     std::cout << std::endl;
 }
 
+/**
+ * @brief Przesuwa kursor na następny element i wyświetla jego wartość.
+ */
 void DoublyLinkedList::display_next_element()
 {
     if (head == nullptr)
@@ -220,6 +275,9 @@ void DoublyLinkedList::display_next_element()
     std::cout << "Next element: " << cursor->value << std::endl;
 }
 
+/**
+ * @brief Przesuwa kursor na poprzedni element i wyświetla jego wartość.
+ */
 void DoublyLinkedList::display_prev_element()
 {
     if (head == nullptr)
@@ -246,6 +304,9 @@ void DoublyLinkedList::display_prev_element()
     std::cout << "Previous element:" << cursor->value << std::endl;
 }
 
+/**
+ * @brief Czyści listę usuwając wszystkie jej elementy.
+ */
 void DoublyLinkedList::clear_list()
 {
     while (head != nullptr)

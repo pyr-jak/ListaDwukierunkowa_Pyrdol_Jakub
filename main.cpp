@@ -1,6 +1,19 @@
+/**
+* @file main.cpp
+ * @brief Plik główny programu testujący implementację dwukierunkowej listy powiązanej.
+ */
+
 #include <iostream>
 #include "DoublyLinkedList.h"
 
+/**
+ * @brief Główna funkcja programu.
+ *
+ * Przeprowadza serię testów metod klasy DoublyLinkedList, w tym dodawanie,
+ * usuwanie, wyświetlanie elementów oraz użycie kursora.
+ *
+ * @return Wartość 0 w przypadku pomyślnego zakończenia programu.
+ */
 int main() {
     DoublyLinkedList list;
 
