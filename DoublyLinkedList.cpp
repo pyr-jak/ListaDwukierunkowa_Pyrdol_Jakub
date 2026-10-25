@@ -168,36 +168,30 @@ void DoublyLinkedList::display_list()
 {
     if (head == nullptr)
     {
-        std::cout<<"List is empty"<<std::endl;
+        std::cout << "Lista jest pusta\n";
         return;
     }
 
-    Node* current = head;
-
-    while (current != nullptr)
+    for (Iterator it = begin(); it != end(); ++it)
     {
-        std::cout<< current->value << " ";
-        current = current->next;
+        std::cout << *it << " ";
     }
-    std::cout<<std::endl;
+    std::cout << std::endl;
 }
 
 void DoublyLinkedList::display_reversed_list()
 {
-    if (head == nullptr)
+    if (tail == nullptr)
     {
-        std::cout<<"List is empty"<<std::endl;
+        std::cout << "Lista jest pusta\n";
         return;
     }
-
-    Node* current = tail;
-
-    while (current != nullptr)
+    
+    for (Iterator it = Iterator(tail); it != end(); --it)
     {
-        std::cout<< current->value << " ";
-        current = current->prev;
+        std::cout << *it << " ";
     }
-    std::cout<<std::endl;
+    std::cout << std::endl;
 }
 
 void DoublyLinkedList::display_next_element()
