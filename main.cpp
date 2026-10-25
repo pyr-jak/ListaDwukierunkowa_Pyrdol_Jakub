@@ -1,7 +1,22 @@
 #include <iostream>
-using namespace std;
+#include "DoublyLinkedList.h"
 
-int main()
-{
+int main() {
+    DoublyLinkedList list;
 
+    std::cout << "Testowanie push_back ";
+    list.push_back(10);
+    list.push_back(20);
+    list.push_back(30);
+    list.display_list();
+
+    std::cout << "Testowanie push_front ";
+    list.push_front(5);
+    list.display_list();
+
+    std::cout << "Testowanie push_wherever ";
+    list.push_wherever(2, 99);
+    list.display_list();
+
+    return 0;
 }

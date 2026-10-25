@@ -1,3 +1,4 @@
+#include <iostream>
 #include "DoublyLinkedList.h"
 
 DoublyLinkedList::DoublyLinkedList()
@@ -84,4 +85,22 @@ void DoublyLinkedList::push_wherever(int index, int value)
     current->prev->next = newNode;
     current->prev = newNode;
     size++;
+}
+
+void DoublyLinkedList::display_list()
+{
+    if (head == nullptr)
+    {
+        std::cout<<"List is empty"<<std::endl;
+        return;
+    }
+
+    Node* current = head;
+
+    while (current != nullptr)
+    {
+        std::cout<< current->value << " ";
+        current = current->next;
+    }
+    std::cout<<std::endl;
 }
