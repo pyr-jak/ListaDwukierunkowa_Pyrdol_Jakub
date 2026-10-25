@@ -36,6 +36,7 @@ private:
     int size;
 
 public:
+    DoublyLinkedList();
     /**
      * @brief Dodaje nowy element na sam początek listy.
      *
