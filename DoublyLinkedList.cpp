@@ -159,6 +159,7 @@ void DoublyLinkedList::pop_front()
     }
 
     delete temp;
+    size--;
 }
 
 /**
@@ -333,7 +334,7 @@ void DoublyLinkedList::display_prev_element()
 void DoublyLinkedList::clear_list()
 {
     cursor = nullptr;
-    
+
     while (head != nullptr)
     {
         pop_front();
