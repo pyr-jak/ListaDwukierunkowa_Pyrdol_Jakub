@@ -36,6 +36,9 @@ private:
     int size;
 
 public:
+    /**
+     * @brief Konstruktor klasy.
+     */
     DoublyLinkedList();
     /**
      * @brief Dodaje nowy element na sam początek listy.
