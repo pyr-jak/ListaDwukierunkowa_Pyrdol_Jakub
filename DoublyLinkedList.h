@@ -46,6 +46,15 @@ public:
      */
     DoublyLinkedList();
     /**
+     * @brief Destruktor klasy.
+     */
+    ~DoublyLinkedList();
+    /**
+     * @brief Blokowanie kopiowania listy, różne obiekty nie będą współdzielić tych samych węzłów.
+     */
+    DoublyLinkedList(const DoublyLinkedList&) = delete;
+    DoublyLinkedList& operator=(const DoublyLinkedList&) = delete;
+    /**
      * @brief Dodaje nowy element na sam początek listy.
      *
      * @param value Wartość liczbowa do zapisania w nowym węźle.

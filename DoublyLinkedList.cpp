@@ -18,7 +18,16 @@ DoublyLinkedList::DoublyLinkedList()
     cursor = nullptr;
     size = 0;
 }
-
+/**
+ * @brief Destruktor domyślny klasy DoublyLinkedList.
+ */
+DoublyLinkedList::~DoublyLinkedList()
+{
+    while (head != nullptr)
+    {
+        pop_front();
+    }
+}
 /**
  * @brief Zwraca iterator wskazujący na początek listy.
  * 
@@ -144,8 +153,12 @@ void DoublyLinkedList::pop_front()
         head->prev = nullptr;
     }
 
+    if (cursor == temp)
+    {
+        cursor = nullptr;
+    }
+
     delete temp;
-    size--;
 }
 
 /**
@@ -167,6 +180,11 @@ void DoublyLinkedList::pop_back()
     }else
     {
         tail->next = nullptr;
+    }
+
+    if (cursor == temp)
+    {
+        cursor = nullptr;
     }
 
     delete temp;
@@ -206,6 +224,11 @@ void DoublyLinkedList::pop_wherever(int index)
 
     current->prev->next = current->next;
     current->next->prev = current->prev;
+    if (cursor == current)
+    {
+        cursor = nullptr;
+    }
+
     delete current;
     size--;
 }
@@ -309,6 +332,8 @@ void DoublyLinkedList::display_prev_element()
  */
 void DoublyLinkedList::clear_list()
 {
+    cursor = nullptr;
+    
     while (head != nullptr)
     {
         pop_front();
