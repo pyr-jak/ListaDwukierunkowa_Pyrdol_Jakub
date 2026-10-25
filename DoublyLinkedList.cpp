@@ -104,3 +104,79 @@ void DoublyLinkedList::display_list()
     }
     std::cout<<std::endl;
 }
+
+void DoublyLinkedList::pop_front()
+{
+    if (head == nullptr)
+    {
+        return;
+    }
+
+    Node* temp = head;
+    head = head->next;
+
+    if (head == nullptr)
+    {
+        tail = nullptr;
+    }else
+    {
+        head->prev = nullptr;
+    }
+
+    delete temp;
+    size--;
+}
+
+void DoublyLinkedList::pop_back()
+{
+    if (head == nullptr)
+    {
+        return;
+    }
+
+    Node* temp = tail;
+    tail = tail->prev;
+
+    if (tail == nullptr)
+    {
+        head = nullptr;
+    }else
+    {
+        tail->next = nullptr;
+    }
+
+    delete temp;
+    size--;
+}
+
+void DoublyLinkedList::pop_wherever(int index)
+{
+    if (index < 0 || index >= size)
+    {
+        return;
+    }
+
+    if (index == 0)
+    {
+        pop_front();
+        return;
+    }
+
+    if (index == size - 1)
+    {
+        pop_back();
+        return;
+    }
+
+    Node* current = head;
+
+    for (int i = 0; i < index; i++)
+    {
+        current = current->next;
+    }
+
+    current->prev->next = current->next;
+    current->next->prev = current->prev;
+    delete current;
+    size--;
+}

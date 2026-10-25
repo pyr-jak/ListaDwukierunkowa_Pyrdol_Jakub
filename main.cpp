@@ -18,5 +18,17 @@ int main() {
     list.push_wherever(2, 99);
     list.display_list();
 
+    std::cout << "Testowanie pop_front ";
+    list.pop_front();
+    list.display_list();
+
+    std::cout << "Testowanie pop_back ";
+    list.pop_back();
+    list.display_list();
+
+    std::cout << "Testowanie pop_wherever ";
+    list.pop_wherever(1);
+    list.display_list();
+
     return 0;
 }
