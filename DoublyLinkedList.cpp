@@ -87,24 +87,6 @@ void DoublyLinkedList::push_wherever(int index, int value)
     size++;
 }
 
-void DoublyLinkedList::display_list()
-{
-    if (head == nullptr)
-    {
-        std::cout<<"List is empty"<<std::endl;
-        return;
-    }
-
-    Node* current = head;
-
-    while (current != nullptr)
-    {
-        std::cout<< current->value << " ";
-        current = current->next;
-    }
-    std::cout<<std::endl;
-}
-
 void DoublyLinkedList::pop_front()
 {
     if (head == nullptr)
@@ -179,4 +161,49 @@ void DoublyLinkedList::pop_wherever(int index)
     current->next->prev = current->prev;
     delete current;
     size--;
+}
+
+void DoublyLinkedList::display_list()
+{
+    if (head == nullptr)
+    {
+        std::cout<<"List is empty"<<std::endl;
+        return;
+    }
+
+    Node* current = head;
+
+    while (current != nullptr)
+    {
+        std::cout<< current->value << " ";
+        current = current->next;
+    }
+    std::cout<<std::endl;
+}
+
+void DoublyLinkedList::display_reversed_list()
+{
+    if (head == nullptr)
+    {
+        std::cout<<"List is empty"<<std::endl;
+        return;
+    }
+
+    Node* current = tail;
+
+    while (current != nullptr)
+    {
+        std::cout<< current->value << " ";
+        current = current->prev;
+    }
+    std::cout<<std::endl;
+}
+
+void DoublyLinkedList::clear_list()
+{
+    while (head != nullptr)
+    {
+        pop_front();
+    }
+    std::cout<<"Clearing Completed"<<std::endl;
 }

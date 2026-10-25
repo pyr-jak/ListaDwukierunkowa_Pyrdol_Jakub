@@ -4,31 +4,34 @@
 int main() {
     DoublyLinkedList list;
 
-    std::cout << "Testowanie push_back ";
+    std::cout << "Testing push_back ";
     list.push_back(10);
     list.push_back(20);
     list.push_back(30);
     list.display_list();
 
-    std::cout << "Testowanie push_front ";
+    std::cout << "Testing push_front ";
     list.push_front(5);
     list.display_list();
 
-    std::cout << "Testowanie push_wherever ";
+    std::cout << "Testing push_wherever ";
     list.push_wherever(2, 99);
     list.display_list();
+    std::cout << " REVERSED LIST: ";
+    list.display_reversed_list();
 
-    std::cout << "Testowanie pop_front ";
+    std::cout << "Testing pop_front ";
     list.pop_front();
     list.display_list();
 
-    std::cout << "Testowanie pop_back ";
+    std::cout << "Testing pop_back ";
     list.pop_back();
-    list.display_list();
+    list.display_list();;
 
-    std::cout << "Testowanie pop_wherever ";
+    std::cout << "Testing pop_wherever ";
     list.pop_wherever(1);
     list.display_list();
 
+    list.clear_list();
     return 0;
 }
