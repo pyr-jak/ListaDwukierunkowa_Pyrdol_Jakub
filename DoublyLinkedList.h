@@ -35,7 +35,25 @@ private:
      */
     int size;
 
+    /**
+     * @brief Zmienna przechowująca miejsce w którym ostanio działały funkcje display_prev i display_next.
+     */
+    Node* cursor;
+
 public:
+    /**
+     * @brief Konstruktor klasy.
+     */
+    DoublyLinkedList();
+    /**
+     * @brief Destruktor klasy.
+     */
+    ~DoublyLinkedList();
+    /**
+     * @brief Blokowanie kopiowania listy, różne obiekty nie będą współdzielić tych samych węzłów.
+     */
+    DoublyLinkedList(const DoublyLinkedList&) = delete;
+    DoublyLinkedList& operator=(const DoublyLinkedList&) = delete;
     /**
      * @brief Dodaje nowy element na sam początek listy.
      *
